@@ -1,0 +1,17 @@
+.wrap {
+    background-color: #61dafb;
+    padding: 20px;
+    border-radius: 5px;
+    width: 200px;
+    box-sizing: border-box;
+    margin-bottom: 20px;
+}
+.title {
+    font-size: 36px;
+    font-weight: bold;
+    margin: 0;
+}
+
+.red {
+    color: red;
+}
