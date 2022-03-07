@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/couter/static/css/main.166dc2f5.css",
+    "main.js": "/couter/static/js/main.83ac1975.js",
+    "static/js/787.b5aa3df0.chunk.js": "/couter/static/js/787.b5aa3df0.chunk.js",
+    "index.html": "/couter/index.html",
+    "main.166dc2f5.css.map": "/couter/static/css/main.166dc2f5.css.map",
+    "main.83ac1975.js.map": "/couter/static/js/main.83ac1975.js.map",
+    "787.b5aa3df0.chunk.js.map": "/couter/static/js/787.b5aa3df0.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.166dc2f5.css",
+    "static/js/main.83ac1975.js"
+  ]
+}
