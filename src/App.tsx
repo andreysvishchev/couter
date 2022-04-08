@@ -9,10 +9,9 @@ import set = Reflect.set;
 function App() {
 
     let [counterValue, setCounterValue] = useState(0)
-    let [disabledValue, setDisabledValue] = useState(5)
 
     let [startValue, setStartValue] = useState<number>(0)
-    let [maxValue, setMaxValue] = useState<number>(0)
+    let [maxValue, setMaxValue] = useState<number>(5)
 
     let [error, setError] = useState<boolean>(false)
     let [errorText, setErrorText] = useState<boolean>(false)
@@ -28,18 +27,6 @@ function App() {
     useEffect(() => {
         localStorage.setItem('counterValue', JSON.stringify(counterValue))
     }, [counterValue])
-
-    useEffect(() => {
-        let valueAsString = localStorage.getItem('disabledValue')
-        if (valueAsString) {
-            let newValue = JSON.parse(valueAsString)
-            setDisabledValue(newValue)
-        }
-    }, [])
-
-    useEffect(() => {
-        localStorage.setItem('disabledValue', JSON.stringify(disabledValue))
-    }, [disabledValue])
 
     useEffect(() => {
         let valueAsString = localStorage.getItem('startValue')
@@ -66,8 +53,8 @@ function App() {
     }, [maxValue])
 
 
-    function addDisabledValue(disabledValue: number) {
-        setDisabledValue(disabledValue)
+    function addMaxValueCounter(maxValue: number) {
+        setMaxValue(maxValue)
     }
 
     function addMinValueCounter(startValue: number) {
@@ -92,24 +79,22 @@ function App() {
                     setStartValue={setStartValue}
                     maxValue={maxValue}
                     setMaxValue={setMaxValue}
-                    disabledValue={disabledValue}
                     addMinValueCounter={addMinValueCounter}
-                    addDisabledValue={addDisabledValue}
+                    addMaxValueCounter={addMaxValueCounter}
                     errorText={errorText}
                     setErrorText={setErrorText}
                     error={error}
                     setError={setError}
                 />
-
-
             </div>
 
             <div className="wrap">
                 <Counter
-                    counter={counterValue}
+                    counterValue={counterValue}
+                    maxValue={maxValue}
+                    startValue={startValue}
                     incCounter={incCounter}
                     resCounter={resCounter}
-                    disabledValue={disabledValue}
                     error={error}
                     errorText={errorText}
                 />

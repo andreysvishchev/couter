@@ -4,10 +4,11 @@ import React from "react";
 import {CounterDisplay} from "../counterDisplay/CounterDisplay";
 
 type CounterType = {
-    counter: number
+    maxValue: number
+    startValue: number
+    counterValue: number
     incCounter: (counter: number) => void
     resCounter: () => void
-    disabledValue: number
     error: boolean
     errorText: boolean
 }
@@ -15,7 +16,7 @@ type CounterType = {
 export const Counter = (props: CounterType) => {
 
     const incCounterHandler = () => {
-        props.incCounter(props.counter)
+        props.incCounter(props.counterValue)
     }
     const resCounterHandler = () => {
         props.resCounter()
@@ -24,16 +25,16 @@ export const Counter = (props: CounterType) => {
     return (
         <div>
             <div className={s.wrap}>
-                <CounterDisplay counter={props.counter}
+                <CounterDisplay counterValue={props.counterValue}
                                 error={props.error}
-                                disabledValue={props.disabledValue}
+                                maxValue={props.maxValue}
                                 textError={props.errorText}/>
             </div>
             <div className={s.button_inner}>
                 <Button name={'inc'} callBack={incCounterHandler}
-                        disabled={props.error || props.errorText || props.counter === props.disabledValue}/>
+                        disabled={props.error || props.errorText || props.counterValue === props.maxValue}/>
                 <Button name={'reset'} callBack={resCounterHandler}
-                        disabled={props.error || props.errorText || props.counter <= 0}/>
+                        disabled={props.error || props.errorText || props.counterValue <= 0 || props.counterValue === props.startValue}/>
             </div>
         </div>
 

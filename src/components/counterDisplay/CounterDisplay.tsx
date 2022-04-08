@@ -2,10 +2,10 @@ import s from './CounterDsplay.module.css'
 import React from "react";
 
 type PropsType = {
+    maxValue: number
+    counterValue: number
     textError: boolean
     error: boolean
-    disabledValue: number
-    counter: number
 }
 export const CounterDisplay = (props: PropsType) => {
    if(props.textError) {
@@ -14,8 +14,8 @@ export const CounterDisplay = (props: PropsType) => {
        )
    } else {
        return (
-           <h1 className={props.error || props.counter === props.disabledValue ? `${s.error + ' ' + s.title}` : s.title}>
-               { props.counter}
+           <h1 className={props.error || props.counterValue === props.maxValue ? `${s.error + ' ' + s.title}` : s.title}>
+               { props.counterValue}
            </h1>
        )
    }

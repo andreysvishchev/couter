@@ -4,23 +4,22 @@ import s from './Set.module.css'
 
 
 type SetPropsType = {
-    disabledValue: number
-    addDisabledValue: (maxValue: number) => void
-    addMinValueCounter: (startValue: number) => void
     startValue: number
     maxValue: number
     setStartValue: (startValue: number) => void
     setMaxValue: (maxValue: number) => void
+    addMaxValueCounter: (maxValue: number) => void
+    addMinValueCounter: (startValue: number) => void
     error: boolean
-    setError: (e: boolean)=> void
+    setError: (e: boolean) => void
     errorText: boolean
-    setErrorText: (e: boolean)=> void
+    setErrorText: (e: boolean) => void
 }
 
 export const Set = (props: SetPropsType) => {
 
     const addSettingsHandler = (maxValue: number, startValue: number) => {
-        props.addDisabledValue(maxValue)
+        props.addMaxValueCounter(maxValue)
         props.addMinValueCounter(startValue)
         props.setErrorText(false)
     }
