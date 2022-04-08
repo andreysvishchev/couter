@@ -16,42 +16,27 @@ function App() {
     let [error, setError] = useState<boolean>(false)
     let [errorText, setErrorText] = useState<boolean>(false)
 
-    useEffect(() => {
-        let valueAsString = localStorage.getItem('counterValue')
-        if (valueAsString) {
-            let newValue = JSON.parse(valueAsString)
-            setCounterValue(newValue)
-        }
-    }, [])
+    useEffect(()=> {
+        let counterValue = localStorage.getItem('counterValue')
+        let startValue = localStorage.getItem('startValue')
+        let maxValue = localStorage.getItem('maxValue')
 
-    useEffect(() => {
+        if(counterValue && startValue && maxValue) {
+            let newCounterValue = JSON.parse(counterValue)
+            let newStartValue = JSON.parse(startValue)
+            let newMaxValue = JSON.parse(maxValue)
+
+            setCounterValue(newCounterValue)
+            setStartValue(newStartValue)
+            setMaxValue(newMaxValue)
+        }
+    },[])
+
+    useEffect(()=> {
         localStorage.setItem('counterValue', JSON.stringify(counterValue))
-    }, [counterValue])
-
-    useEffect(() => {
-        let valueAsString = localStorage.getItem('startValue')
-        if (valueAsString) {
-            let newValue = JSON.parse(valueAsString)
-            setStartValue(newValue)
-        }
-    }, [])
-
-    useEffect(() => {
         localStorage.setItem('startValue', JSON.stringify(startValue))
-    }, [startValue])
-
-    useEffect(() => {
-        let valueAsString = localStorage.getItem('maxValue')
-        if (valueAsString) {
-            let newValue = JSON.parse(valueAsString)
-            setMaxValue(newValue)
-        }
-    }, [])
-
-    useEffect(() => {
         localStorage.setItem('maxValue', JSON.stringify(maxValue))
-    }, [maxValue])
-
+    },[counterValue, startValue, maxValue ])
 
     function addMaxValueCounter(maxValue: number) {
         setMaxValue(maxValue)
@@ -72,7 +57,6 @@ function App() {
 
     return (
         <div className="App">
-
             <div className="wrap">
                 <Set
                     startValue={startValue}
@@ -87,7 +71,6 @@ function App() {
                     setError={setError}
                 />
             </div>
-
             <div className="wrap">
                 <Counter
                     counterValue={counterValue}

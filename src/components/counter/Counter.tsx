@@ -31,9 +31,9 @@ export const Counter = (props: CounterType) => {
                                 textError={props.errorText}/>
             </div>
             <div className={s.button_inner}>
-                <Button name={'inc'} callBack={incCounterHandler}
+                <Button name={'Inc'} callBack={incCounterHandler}
                         disabled={props.error || props.errorText || props.counterValue === props.maxValue}/>
-                <Button name={'reset'} callBack={resCounterHandler}
+                <Button name={'Reset'} callBack={resCounterHandler}
                         disabled={props.error || props.errorText || props.counterValue <= 0 || props.counterValue === props.startValue}/>
             </div>
         </div>

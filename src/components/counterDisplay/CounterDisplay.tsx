@@ -10,7 +10,7 @@ type PropsType = {
 export const CounterDisplay = (props: PropsType) => {
    if(props.textError) {
        return (
-           <h1 className={props.error ? `${s.error + ' ' + s.text}` : s.text}> {props.error ? ' Incorrect Value!' : 'Enter values and press "set"'}</h1>
+           <h1 className={props.error ? `${s.error + ' ' + s.text}` : s.text}> {props.error ? ' Incorrect Value!' : 'Enter values and press "Set"'}</h1>
        )
    } else {
        return (

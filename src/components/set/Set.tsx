@@ -66,7 +66,7 @@ export const Set = (props: SetPropsType) => {
                 </div>
             </div>
             <div className={s.button_inner}>
-                <Button name={'set'}
+                <Button name={'Set'}
                         callBack={() => addSettingsHandler(props.maxValue, props.startValue)}
                         disabled={props.error}/>
             </div>
