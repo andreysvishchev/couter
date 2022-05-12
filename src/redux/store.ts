@@ -1,12 +1,8 @@
 import { combineReducers, createStore } from "redux";
-import { counterValueReducer } from "./counterValueReducer";
-import { maxValueReducer } from "./maxValueReducer";
-import { startValueReducer } from "./startValueReducer";
+import { counterReducer } from "./counterReducer";
 
 export const rootReducer = combineReducers({
-  counterValue: counterValueReducer,
-  startValue: startValueReducer,
-  maxValue: maxValueReducer,
+  counter: counterReducer,
 });
 
 export type RootStateType = ReturnType<typeof rootReducer>;
